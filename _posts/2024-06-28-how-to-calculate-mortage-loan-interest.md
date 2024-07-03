@@ -6,34 +6,34 @@ include_mathjax: true
 ---
 In China, there are two methods for mortgage loan payment:
 
-+ Method 1: Equal principle
++ Method 1: Equal principal
 + Method 2: Equal monthly payment
 
-## Method 1: Equal principle ##
+## Method 1: Equal principal ##
 
-Every month, the debtor pays back an equal amount of principle, plus interest. Interest equals to the unpaid principle multiplied by interest rate.
+Every month, the debtor pays back an equal amount of principal, plus interest. Interest equals to the unpaid principal multiplied by interest rate.
 
 $$
-X_{n} = \frac{P}{12y} + P[1-(\frac{n-1}{12y})](\frac{R}{12})
+X_{n} = \frac{P}{12y} + P(1-(\frac{n-1}{12y}))(\frac{R}{12})
 $$
 
 $X_{n}$: n month's payment
 
-P: The principle that is borrowed from the bank
+$P$: The principal that is borrowed from the bank
 
-y: Number of years for the mortage loan
+$y$: Number of years for the mortage loan
 
-R: Yearly interest rate
+$R$: Yearly interest rate
 
 After the loan is completely paid off under method 1, how much in total ($T_{I}$) have you paid to the bank?
 
 $$
-T_{I} = P + \sum_{i=1}^nP[1-(\frac{n-1}{12y})](\frac{R}{12})
+T_{I} = P + \sum_{i=1}^nP(1-(\frac{n-1}{12y}))(\frac{R}{12})
 $$
   
 If we assume that you took a 100,000-dollar and 20-year loan from the bank with 5% yearly interest rate, let's look at with time how $X_{n}$ changes. 
 
-From Figure 1, we can see the monthly payment (green line) decreases linearly with time; The principle paid monthly (yellow line) stays constant; The interest paid monthly (purple line) decreases linearly with time. 
+From Figure 1, we can see the monthly payment (green line) decreases linearly with time; The principal paid monthly (yellow line) stays constant; The interest paid monthly (purple line) decreases linearly with time. 
 
 
     
@@ -44,12 +44,12 @@ From Figure 1, we can see the monthly payment (green line) decreases linearly wi
 In Figure 2, we calculated the total amount of money paid up till nth month. When the loan is completely paid off, the total Payment under method one is:
 
 $$
-T_{I} = 149369.79
+T_{I} = 150208.33
 $$
 
 
     
-![png](/assets/images/2024-06-28-how-to-calculate-mortage-loan-interest_files/2024-06-28-how-to-calculate-mortage-loan-interest_6_0.png)
+![png](/assets/images/2024-06-28-how-to-calculate-mortage-loan-interest_files/2024-06-28-how-to-calculate-mortage-loan-interest_7_0.png)
     
 
 
@@ -59,59 +59,59 @@ $$
 ### Monthly payment ###
 
 
-Every month, the debtor pays back an equal payment, i.e. sum of principle and interest.
+Every month, the debtor pays back an equal payment, i.e. sum of principal and interest.
 
 This method is more complicated to calculate than the first one, so I will explain in detail.
 
-L: The rest of the principle that needs to be paid to the bank
+$L$: The rest of the principal that needs to be paid to the bank
 
-P: The total principle borrowed from the bank
+$P$: The total principal borrowed from the bank
 
-r: Monthly interest rate, r = R/12, R is yearly interest rate
+$r$: Monthly interest rate, $r = R/12$, $R$ is yearly interest rate
 
-X: Monthly payment to the bank
+$X$: Monthly payment to the bank
 
-Y: The number of years for the loan
+$Y$: The number of years for the loan
 
-At the end of the **1st month**, after the first payment, the amount of loan left:
+At the end of the `1st month`, after the first payment, the amount of loan left:
 
 $$
 L_{1}= P(1+r) - X
 $$
 
 
-**2nd month**, the amount of loan left: 
+`2nd month`, the amount of loan left: 
 
 $$
-L_{2} = L_{1}(1+r) - X = [P(1+r) - X](1+r) - X = P(1+r)^2 - X[1+(1+r)]
+L_{2} = L_{1}(1+r) - X = (P(1+r) - X)(1+r) - X = P(1+r)^2 - X(1+(1+r))
 $$
 
-**3rd month**: 
+`3rd month`: 
 
 $$
-L_{3} = L_{2}(1+r) - X = {P(1+r)^2 - X[1+(1+r)]}(1+r) - X = P(1+r)^3 - X[1+(1+r)+(1+r)^2]
+L_{3} = L_{2}(1+r) - X = {P(1+r)^2 - X(1+(1+r))}(1+r) - X = P(1+r)^3 - X(1+(1+r)+(1+r)^2)
 $$
 
 or 
 
 $$
-L_{3} = P(1+r)^3 - X[1+(1+r)+(1+r)^2]
+L_{3} = P(1+r)^3 - X(1+(1+r)+(1+r)^2)
 $$
 
-**4th month**:
+`4th month`:
 $$
-L_{4} = P(1+r)^4 - X[1+(1+r)+(1+r)^2+(1+r)^3]
+L_{4} = P(1+r)^4 - X(1+(1+r)+(1+r)^2+(1+r)^3)
 $$
 
 ...
 
-**Nth month**:
+`Nth month`:
 
 $$
-L_{n} = P(1+r)^n - X[1+(1+r)+(1+r)^2+...+(1+r)^{n-1}]
+L_{n} = P(1+r)^n - X(1+(1+r)+(1+r)^2+...+(1+r)^{n-1})
 $$
 
-Let's observe the second part of the equation $X[1+(1+r)+(1+r)^2+...+(1+r)^{n-1}]$ contains a geometric series. Let's briefly review the formula of geometric series:
+Let's observe the second part of the equation $X(1+(1+r)+(1+r)^2+...+(1+r)^{n-1})$ contains a geometric series. Let's briefly review the formula of geometric series:
 
 $$
 S_{n} = a + aj + aj^2 + aj^3 + ... + aj^{n-1}
@@ -136,65 +136,65 @@ $$
 L_{n} = P(1+r)^n + X{\frac{1-(1+r)^n}{r}}
 $$
 
-When the loan is completely paid off, i.e. $n = 12Y, L_{12Y} = 0$, and since P and r are known, we can finally  calculate monthly payment X:
+When the loan is completely paid off, i.e. $n = 12Y, L_{12Y} = 0$, and since $P$ and $r$ are known, we can finally  calculate monthly payment $X$:
 
 $$
 X = \frac{rP(1+r)^n}{(1+r)^n-1}
 $$
 
-And we can also replace the monthly interest rate r with yearly rate R, which is normally given by the banks:
+And we can also replace the monthly interest rate $r$ with yearly rate $R$, which is normally given by the banks:
 
 $$
 X = \frac{\frac{R}{12}P(1+\frac{R}{12})^n}{(1+\frac{R}{12})^n-1}
 $$
 
-After calculating monthly payment X, let's see how much interest and principle the debtor is paying to the bank every month.
+After calculating monthly payment $X$, let's see how much interest and principal the debtor is paying to the bank every month.
 
 
 ### Monthly Interest ###
 
 
-The interest equals to the money (principle) the debtor still owes the bank multiplied by interest rate. 
+The interest equals to the money (principal) the debtor still owes the bank multiplied by interest rate. 
 
-At the end of the **1st month**:
-
-$$
-I_{1} = P * r
-$$
-
-The **2nd month**
+At the end of the `1st month`:
 
 $$
-I_{2} = L_{1} * r
+I_{1} = P \times r
 $$
 
-The **3rd month**
+`2nd month`
 
 $$
-I_{3} = L_{2} * r
+I_{2} = L_{1} \times r
+$$
+
+`3rd month`
+
+$$
+I_{3} = L_{2} \times r
 $$
 
 ...
 
-The **Nth month**
+`Nth month`
 
 $$
-I_{n} = L_{n-1} * r  
+I_{n} = L_{n-1} \times r  
 $$
 
 
-### Monthly Principle ###
+### Monthly Principal ###
 
 
-Since we have already calculated monthly payment X and interest I, it's easy to calculate the principle the debtor is paying every month.
+Since we have already calculated monthly payment $X$ and interest $I$, it's easy to calculate the principal the debtor is paying every month.
 
 $$
 P_{n} = X - I_{n}
 $$
 
-Let's look at an example of a mortgage loan payment under method 2. We'll continue to use the example from method 1: assume that you took a 100,000-dollar and 20-year loan from the bank with 5% yearly interest rate, let's look at with time how monthly payment, interest and principle changes.
+Let's look at an example of a mortgage loan payment under method 2. We'll continue to use the example from method 1: assume that you took a 100,000-dollar and 20-year loan from the bank with 5% yearly interest rate, let's look at with time how monthly payment, interest and principal changes.
 
-In Figure 3, the monthly payment is constant; the monthly interest decreases with time; the monthly principle paid to the bank increases with time. In the beginning, the interest is higher than the principle paid back to the bank, which means in your monthly payment, majority of what you are paying is interest.
+In Figure 3, the monthly payment is constant; the monthly interest decreases with time; the monthly principal paid to the bank increases with time. In the beginning, the interest is higher than the principal paid back to the bank, which means in your monthly payment, majority of what you are paying is interest.
 
 
     
@@ -205,27 +205,22 @@ In Figure 3, the monthly payment is constant; the monthly interest decreases wit
 Now let's look at under method 2, when the loan is completely paid off, how much have you paid?
 
 $$
-T_{II} = X * 12y
+T_{II} = X \times 12y
 $$
 
-Figure 4 shows the total amount of money paid up till nth month. When the loan is completely paid off, the total Payment under method two is:
+When the loan is completely paid off, the total Payment under method two is:
 
 $$
 T_{II} = 157729.42
 $$
 
 and 
+
 $$
-T_{I} = 149369.79
+T_{I} = 150208.33
 $$
 
 Obviously the total payment of the first method is lower than that of the second method. 
-
-
-    
-![png](/assets/images/2024-06-28-how-to-calculate-mortage-loan-interest_files/2024-06-28-how-to-calculate-mortage-loan-interest_13_0.png)
-    
-
 
 ## Conclusion ##
 
