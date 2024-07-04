@@ -31,7 +31,7 @@ $$
 T_{I} = P + \sum_{i=1}^nP(1-(\frac{n-1}{12y}))(\frac{R}{12})
 $$
   
-If we assume that you took a 100,000-dollar and 20-year loan from the bank with 5% yearly interest rate, let's look at with time how $X_{n}$ changes. 
+If we assume that you took a $100,000$-dollar and $20$-year loan from the bank with $5$% yearly interest rate, let's look at with time how $X_{n}$ changes. 
 
 From Figure 1, we can see the monthly payment (green line) decreases linearly with time; The principal paid monthly (yellow line) stays constant; The interest paid monthly (purple line) decreases linearly with time. 
 
@@ -99,6 +99,7 @@ L_{3} = P(1+r)^3 - X(1+(1+r)+(1+r)^2)
 $$
 
 `4th month`:
+
 $$
 L_{4} = P(1+r)^4 - X(1+(1+r)+(1+r)^2+(1+r)^3)
 $$
@@ -192,7 +193,7 @@ $$
 P_{n} = X - I_{n}
 $$
 
-Let's look at an example of a mortgage loan payment under method 2. We'll continue to use the example from method 1: assume that you took a 100,000-dollar and 20-year loan from the bank with 5% yearly interest rate, let's look at with time how monthly payment, interest and principal changes.
+Let's look at an example of a mortgage loan payment under method 2. We'll continue to use the example from method 1: assume that you took a $100,000$-dollar and $20$-year loan from the bank with $5$% yearly interest rate, let's look at with time how monthly payment, interest and principal changes.
 
 In Figure 3, the monthly payment is constant; the monthly interest decreases with time; the monthly principal paid to the bank increases with time. In the beginning, the interest is higher than the principal paid back to the bank, which means in your monthly payment, majority of what you are paying is interest.
 
